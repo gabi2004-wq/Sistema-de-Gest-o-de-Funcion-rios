@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Gestão de Funcionários</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Gestão de Funcionários</h1>
+        <p>Sistema de Controle Administrativo</p>
+    </header>
+
+    <main>
+
+        <!-- INDICADORES -->
+        <section class="indicadores">
+
+            <div class="card">
+                <h2>Total de Funcionários</h2>
+                <p id="totalFuncionarios">0</p>
+            </div>
+
+            <div class="card">
+                <h2>Folha Salarial</h2>
+                <p id="folhaSalarial">R$ 0,00</p>
+            </div>
+
+            <div class="card">
+                <h2>Departamentos</h2>
+                <p id="totalDepartamentos">0</p>
+            </div>
+
+        </section>
+
+        <!-- CADASTRO -->
+        <section class="painel cadastro">
+
+            <h2>Cadastrar Funcionário</h2>
+
+            <form id="formFuncionario">
+
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Digite o nome completo"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="cpf">CPF</label>
+                    <input
+                        type="text"
+                        id="cpf"
+                        placeholder="000.000.000-00"
+                        maxlength="14"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="cargo">Cargo</label>
+                    <input
+                        type="text"
+                        id="cargo"
+                        placeholder="Ex.: Assistente Administrativo"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="departamento">Departamento</label>
+                    <select id="departamento" required>
+                        <option value="">Selecione</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Financeiro">Financeiro</option>
+                        <option value="Recursos Humanos">Recursos Humanos</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="Logística">Logística</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="salario">Salário (R$)</label>
+                    <input
+                        type="number"
+                        id="salario"
+                        placeholder="Ex.: 2500"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="dataContratacao">Data de contratação</label>
+                    <input
+                        type="date"
+                        id="dataContratacao"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="botaoSalvar">
+                    Cadastrar Funcionário
+                </button>
+
+                <button
+                    type="button"
+                    id="botaoCancelar"
+                    hidden
+                >
+                    Cancelar Edição
+                </button>
+
+            </form>
+
+            <p id="mensagem" role="status"></p>
+
+        </section>
+
+        <!-- PESQUISA -->
+        <section class="painel pesquisa">
+
+            <h2>Pesquisar Funcionários</h2>
+
+            <input
+                type="search"
+                id="pesquisa"
+                placeholder="Digite o nome, cargo ou departamento..."
+            >
+
+        </section>
+
+        <!-- TABELA -->
+        <section class="painel tabela-painel">
+
+            <h2>Funcionários Cadastrados</h2>
+
+            <div class="tabela-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Cargo</th>
+                            <th>Departamento</th>
+                            <th>Salário</th>
+                            <th>Contratação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaFuncionarios"></tbody>
+
+                </table>
+
+            </div>
+
+            <p id="tabelaVazia">
+                Nenhum funcionário cadastrado.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Sistema de Gestão de Funcionários © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
